@@ -120,6 +120,7 @@
             this.rbSingle.TabStop = true;
             this.rbSingle.Text = "Single";
             this.rbSingle.UseVisualStyleBackColor = true;
+            this.rbSingle.CheckedChanged += new System.EventHandler(this.rbSingle_CheckedChanged);
             // 
             // rbDouble
             // 
@@ -130,6 +131,7 @@
             this.rbDouble.TabIndex = 3;
             this.rbDouble.Text = "Double";
             this.rbDouble.UseVisualStyleBackColor = true;
+            this.rbDouble.CheckedChanged += new System.EventHandler(this.rbDouble_CheckedChanged);
             // 
             // label1
             // 
