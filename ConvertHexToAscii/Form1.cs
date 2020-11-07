@@ -51,7 +51,15 @@ namespace ConvertHexToAscii
                 }
             }
             else if (rbDouble.Checked)
-            { }
+            {
+                ConvertStringManager mane = new ConvertStringManager(tbInputString.Text);
+                mane.ConvertDouble ();
+
+                for (int i = 0; i < mane.DoubleStringList.Count; i++)
+                {
+                    tbList[i].Text = mane.DoubleStringList[i];
+                }
+            }
 
         }
     }

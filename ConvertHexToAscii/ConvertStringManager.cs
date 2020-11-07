@@ -22,7 +22,7 @@ namespace ConvertHexToAscii
         public void ConvertSingle()
         {
             //1倍超の時の変換を行う。
-            //ストリングになったものを上から順に入れてこむ。
+            //ストリングになったものを上から順に入れこむ。
             //奇数の時は最後に00を入れる。
             if (strList.Count == 0) return;
 
@@ -30,6 +30,7 @@ namespace ConvertHexToAscii
             //かなり悪い方法だが、そこまで要素数が多い事もないので当面はこれでいく。
             List<string> hardCopy = new List<string>();
             hardCopy.AddRange(strList);
+            SingleStringList.Clear();
 
             while (true)
             {
@@ -62,7 +63,55 @@ namespace ConvertHexToAscii
         }
 
         public void ConvertDouble()
-        { }
+        {
+            //倍超の時の変換を行う。
+            //ストリングになったものをテキストボックスに2,3,0,1の順に入れこむ。
+            // 0123->30,31,32,33-> 32,33,30,31  となる。        
+            //そのため、余剰の文字が1，2，3、4で場合分けをする。
+            //文字列がないときは奇数の時は最後に00を入れる。
+            if (strList.Count == 0) return;
+
+            //Listをハードコピーする。
+            //かなり悪い方法だが、そこまで要素数が多い事もないので当面はこれでいく。
+            List<string> hardCopy = new List<string>();
+            hardCopy.AddRange(strList);
+            DoubleStringList.Clear();
+
+            while (true)
+            {
+                if (hardCopy.Count == 1)
+                {
+                    DoubleStringList.Add("00" + "00" + hardCopy[0] + "00");
+                    break;
+                }
+                else if (hardCopy.Count == 2)
+                {
+                    DoubleStringList.Add("00" + "00" + hardCopy[0] + hardCopy[1]);
+                    break;
+                }
+                else if (hardCopy.Count == 3)
+                {
+                    DoubleStringList.Add(hardCopy[2] + "00" + hardCopy[0] + hardCopy[1]);
+                    break;
+                }
+                else if (hardCopy.Count == 4)
+                {
+                    DoubleStringList.Add(hardCopy[2] + hardCopy[3] + hardCopy[0] + hardCopy[1]);
+                    break;
+                }
+                else
+                {
+                    DoubleStringList.Add(hardCopy[2] + hardCopy[3] + hardCopy[0] + hardCopy[1]);
+
+                    //最初の4つの様子を削除する。
+                    hardCopy.RemoveAt(0);
+                    hardCopy.RemoveAt(0);
+                    hardCopy.RemoveAt(0);
+                    hardCopy.RemoveAt(0);
+                }
+            }
+
+        }
 
     }
 }
