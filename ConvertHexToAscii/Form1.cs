@@ -16,5 +16,10 @@ namespace ConvertHexToAscii
         {
             InitializeComponent();
         }
+
+        private void btStartConvert_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
