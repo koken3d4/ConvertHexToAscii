@@ -37,6 +37,10 @@
             this.tbConvertASCII5 = new System.Windows.Forms.TextBox();
             this.tbConvertASCII6 = new System.Windows.Forms.TextBox();
             this.btStartConvert = new System.Windows.Forms.Button();
+            this.rbSingle = new System.Windows.Forms.RadioButton();
+            this.rbDouble = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbInputString
@@ -105,11 +109,55 @@
             this.btStartConvert.UseVisualStyleBackColor = true;
             this.btStartConvert.Click += new System.EventHandler(this.btStartConvert_Click);
             // 
+            // rbSingle
+            // 
+            this.rbSingle.AutoSize = true;
+            this.rbSingle.Checked = true;
+            this.rbSingle.Location = new System.Drawing.Point(12, 159);
+            this.rbSingle.Name = "rbSingle";
+            this.rbSingle.Size = new System.Drawing.Size(54, 16);
+            this.rbSingle.TabIndex = 3;
+            this.rbSingle.TabStop = true;
+            this.rbSingle.Text = "Single";
+            this.rbSingle.UseVisualStyleBackColor = true;
+            // 
+            // rbDouble
+            // 
+            this.rbDouble.AutoSize = true;
+            this.rbDouble.Location = new System.Drawing.Point(12, 193);
+            this.rbDouble.Name = "rbDouble";
+            this.rbDouble.Size = new System.Drawing.Size(58, 16);
+            this.rbDouble.TabIndex = 3;
+            this.rbDouble.Text = "Double";
+            this.rbDouble.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "入力文字列";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(170, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "アスキー変換後文字列";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(298, 262);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.rbDouble);
+            this.Controls.Add(this.rbSingle);
             this.Controls.Add(this.btStartConvert);
             this.Controls.Add(this.tbConvertASCII6);
             this.Controls.Add(this.tbConvertASCII5);
@@ -137,6 +185,10 @@
         private System.Windows.Forms.TextBox tbConvertASCII5;
         private System.Windows.Forms.TextBox tbConvertASCII6;
         private System.Windows.Forms.Button btStartConvert;
+        private System.Windows.Forms.RadioButton rbSingle;
+        private System.Windows.Forms.RadioButton rbDouble;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
