@@ -19,6 +19,9 @@ namespace ConvertHexToAscii
 
         private void btStartConvert_Click(object sender, EventArgs e)
         {
+            if (tbInputString.Text == "")
+                return;
+
 
         }
     }

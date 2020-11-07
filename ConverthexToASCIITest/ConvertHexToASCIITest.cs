@@ -13,8 +13,8 @@ namespace ConverthexToASCIITest
         public void  checkConvert()
         {
             ConvertHexToAscii.ConvertHexASCII cha = new ConvertHexToAscii.ConvertHexASCII();
-            Assert.Equal(6, cha.ConvertHex("asf,da").Count);
-            Assert.Equal(4, cha.ConvertHex("TEST").Count);            
+            Assert.Equal(6, cha.ConvertStringToASCIIList("asf,da").Count);
+            Assert.Equal(4, cha.ConvertStringToASCIIList("TEST").Count);            
         }
     }
 }

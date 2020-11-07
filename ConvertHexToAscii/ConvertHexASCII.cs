@@ -17,7 +17,7 @@ namespace ConvertHexToAscii
 
         }
         
-        public List<string> ConvertHex(string _inputText)
+        public List<string> ConvertStringToASCIIList(string _inputText)
         {
             strList.Clear();
 
