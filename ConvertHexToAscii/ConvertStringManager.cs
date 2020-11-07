@@ -10,13 +10,21 @@ namespace ConvertHexToAscii
     {
         List<string> strList = new List<string>();
 
-        public List<string> SingleStringList = new List<string>();
-        public List<string> DoubleStringList = new List<string>();
+        public List<string> StringList = new List<string>();
 
         public ConvertStringManager(string _str)
         {
             ConvertHexASCII conv = new ConvertHexToAscii.ConvertHexASCII();
             strList = conv.ConvertStringToASCIIList(_str);
+        }
+
+        public void Convert(object obj)
+        {
+            var item = (System.Windows.Forms.RadioButton)obj;
+            if (item.Name.Contains("Single"))
+                ConvertSingle();
+            else if (item.Name.Contains("Double"))
+                ConvertDouble();
         }
 
         public void ConvertSingle()
@@ -30,23 +38,23 @@ namespace ConvertHexToAscii
             //かなり悪い方法だが、そこまで要素数が多い事もないので当面はこれでいく。
             List<string> hardCopy = new List<string>();
             hardCopy.AddRange(strList);
-            SingleStringList.Clear();
+            StringList.Clear();
 
             while (true)
             {
                 if (hardCopy.Count == 1)
                 {
-                    SingleStringList.Add(hardCopy[0] + "00");
+                    StringList.Add(hardCopy[0] + "00");
                     break;
                 }
                 else if (hardCopy.Count == 2)
                 {
-                    SingleStringList.Add(hardCopy[0] + hardCopy[1]);
+                    StringList.Add(hardCopy[0] + hardCopy[1]);
                     break;
                 }
                 else
                 {
-                    SingleStringList.Add(hardCopy[0] + hardCopy[1]);
+                    StringList.Add(hardCopy[0] + hardCopy[1]);
                     hardCopy.RemoveAt(0);
                     hardCopy.RemoveAt(0);//最初の要素二つを消去する。
                 }
@@ -75,33 +83,33 @@ namespace ConvertHexToAscii
             //かなり悪い方法だが、そこまで要素数が多い事もないので当面はこれでいく。
             List<string> hardCopy = new List<string>();
             hardCopy.AddRange(strList);
-            DoubleStringList.Clear();
+            StringList.Clear();
 
             while (true)
             {
                 if (hardCopy.Count == 1)
                 {
-                    DoubleStringList.Add("00" + "00" + hardCopy[0] + "00");
+                    StringList.Add("00" + "00" + hardCopy[0] + "00");
                     break;
                 }
                 else if (hardCopy.Count == 2)
                 {
-                    DoubleStringList.Add("00" + "00" + hardCopy[0] + hardCopy[1]);
+                    StringList.Add("00" + "00" + hardCopy[0] + hardCopy[1]);
                     break;
                 }
                 else if (hardCopy.Count == 3)
                 {
-                    DoubleStringList.Add(hardCopy[2] + "00" + hardCopy[0] + hardCopy[1]);
+                    StringList.Add(hardCopy[2] + "00" + hardCopy[0] + hardCopy[1]);
                     break;
                 }
                 else if (hardCopy.Count == 4)
                 {
-                    DoubleStringList.Add(hardCopy[2] + hardCopy[3] + hardCopy[0] + hardCopy[1]);
+                    StringList.Add(hardCopy[2] + hardCopy[3] + hardCopy[0] + hardCopy[1]);
                     break;
                 }
                 else
                 {
-                    DoubleStringList.Add(hardCopy[2] + hardCopy[3] + hardCopy[0] + hardCopy[1]);
+                    StringList.Add(hardCopy[2] + hardCopy[3] + hardCopy[0] + hardCopy[1]);
 
                     //最初の4つの様子を削除する。
                     hardCopy.RemoveAt(0);

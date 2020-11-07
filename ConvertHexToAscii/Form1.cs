@@ -40,27 +40,21 @@ namespace ConvertHexToAscii
             foreach (var tb in tbList)
                 tb.Text = "";
 
+            ConvertStringManager mane = new ConvertStringManager(tbInputString.Text);
             if (rbSingle.Checked)
             {
-                ConvertStringManager mane = new ConvertStringManager(tbInputString.Text);
-                mane.ConvertSingle();
-
-                for (int i = 0; i < mane.SingleStringList.Count; i++)
-                {
-                    tbList[i].Text = mane.SingleStringList[i];
-                }
+                mane.Convert(rbSingle);
             }
-            else if (rbDouble.Checked)
+
+            if (rbDouble.Checked)
             {
-                ConvertStringManager mane = new ConvertStringManager(tbInputString.Text);
-                mane.ConvertDouble ();
-
-                for (int i = 0; i < mane.DoubleStringList.Count; i++)
-                {
-                    tbList[i].Text = mane.DoubleStringList[i];
-                }
+                mane.Convert(rbDouble);
             }
 
+            for (int i = 0; i < mane.StringList.Count; i++)
+            {
+                tbList[i].Text = mane.StringList[i];
+            }
         }
     }
 }

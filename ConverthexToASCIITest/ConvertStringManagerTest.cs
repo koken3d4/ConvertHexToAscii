@@ -19,7 +19,7 @@ namespace ConverthexToASCIITest
         {
             ConvertStringManager manager = new ConvertStringManager("01234");
             manager.ConvertSingle();
-            Assert.Equal(converted, manager.SingleStringList[_index]);            
+            Assert.Equal(converted, manager.StringList[_index]);            
         }
 
         [Theory]
@@ -30,7 +30,27 @@ namespace ConverthexToASCIITest
         {
             ConvertStringManager manager = new ConvertStringManager("012345");
             manager.ConvertSingle();
-            Assert.Equal(converted, manager.SingleStringList[_index]);
+            Assert.Equal(converted, manager.StringList[_index]);
+        }
+
+        [Theory]
+        [InlineData(0, "32333031")]
+        [InlineData(1, "00003400")]
+        public void ConverrtDoubleTestAtOdd(int _index, string converted)
+        {
+            ConvertStringManager manager = new ConvertStringManager("01234");
+            manager.ConvertDouble();
+            Assert.Equal(converted, manager.StringList[_index]);
+        }
+
+        [Theory]
+        [InlineData(0, "32333031")]
+        [InlineData(1, "00003435")]
+        public void ConverrtDoubleTestAtEven(int _index, string converted)
+        {
+            ConvertStringManager manager = new ConvertStringManager("012345");
+            manager.ConvertDouble();
+            Assert.Equal(converted, manager.StringList[_index]);
         }
     }
 }
